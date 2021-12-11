@@ -8,23 +8,28 @@ namespace himitsu
 {
     public class NaturalSelection
     {
-        int _startPoupulation = 100;
-        int _numeroCamadasDeNeuronios = 5;
-        int _numeroNeuroniosNaCamada = 4;
+        int _startPoupulation;
+        int _numeroCamadasDeNeuronios;
+        int _numeroNeuroniosNaCamada;
         double[] _dadosIniciais;
         Func<string, double> _metodoDeAvaliacao;
         Func<SaidaDeIteracao[], double[]> _metodoReiterador;
         SaidaDeIteracao[] _possiveisSaidas;
         string _filePath = null;
+        int _numeroDeMelhoresDaGeracao;
 
         public NaturalSelection(double[] dadosIniciais, Func<string, double> metodoDeAvaliacao, Func<SaidaDeIteracao[], 
-            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, string filePath)
+            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, string filePath, int startPop = 100,int neuronLayerNumber = 1, int _neuronPerLayer = 4 ,int numberOfBestOfGenToKeep = 10)
         {
             _dadosIniciais = dadosIniciais;
             _metodoDeAvaliacao = metodoDeAvaliacao;
             _metodoReiterador = metodoReiterador;
             _possiveisSaidas = possiveisSaidas;
             _filePath = filePath;
+            _startPoupulation = startPop;
+            _numeroCamadasDeNeuronios = neuronLayerNumber;
+            _numeroNeuroniosNaCamada = _neuronPerLayer;
+            _numeroDeMelhoresDaGeracao = numberOfBestOfGenToKeep;
         }
         public List<SerVivo> EvolveTillGeneration(int finalGeneration)
         {
@@ -128,7 +133,7 @@ namespace himitsu
         {
             var result = geracaoAtual.OrderBy(x => x.Pontuacao);
 
-            return result.Take(10).ToList();
+            return result.Take(_numeroDeMelhoresDaGeracao).ToList();
         }
 
         private List<SerVivo> CriaGeracaoInicial()
