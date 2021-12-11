@@ -10,9 +10,9 @@ namespace himitsu
 {
     public class NaturalSelection
     {
-        int _startPoupulation = 100;
-        int _numeroCamadasDeNeuronios = 1;
-        int _numeroNeuroniosNaCamada = 30;
+        int _startPoupulation;
+        int _numeroCamadasDeNeuronios;
+        int _numeroNeuroniosNaCamada;
         double[] _dadosIniciais;
         Func<string, double> _metodoDeAvaliacao;
         Func<SaidaDeIteracao[], double[]> _metodoReiterador;
@@ -46,7 +46,7 @@ namespace himitsu
         { get { return _filePath; } set{ _filePath = value; } }
 
         public NaturalSelection(double[] dadosIniciais, Func<string, double> metodoDeAvaliacao, Func<SaidaDeIteracao[], 
-            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas)
+            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas, int startPop = 100, int numberOfLayers = 1, int numberOfNeuronsInLayer =10)
         {
             _dadosIniciais = dadosIniciais;
             _metodoDeAvaliacao = metodoDeAvaliacao;
@@ -54,6 +54,9 @@ namespace himitsu
             _possiveisSaidas = possiveisSaidas;
             _filePath = filePath;
             _FaixasDePontuacao = faixas;
+            _startPoupulation = startPop;
+            _numeroCamadasDeNeuronios = numberOfLayers;
+            _numeroNeuroniosNaCamada = numberOfNeuronsInLayer;
             _simulador = new Simulador(_dadosIniciais, _metodoDeAvaliacao, _metodoReiterador, _possiveisSaidas, metodoIniciador);
         }
         public List<SerVivo> EvolveTillGeneration(int finalGeneration, string prexistente)

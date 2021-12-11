@@ -25,3 +25,12 @@ C:\Users\hidde\Desktop\projects\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\D
 C:\Users\hidde\Desktop\projects\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.csproj.CopyComplete
 C:\Users\hidde\Desktop\projects\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.dll
 C:\Users\hidde\Desktop\projects\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.pdb
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\bin\Debug\himitsu.dll
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\bin\Debug\himitsu.pdb
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\bin\Debug\Newtonsoft.Json.dll
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\bin\Debug\Newtonsoft.Json.xml
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.csproj.AssemblyReference.cache
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.csproj.CoreCompileInputs.cache
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.csproj.CopyComplete
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.dll
+D:\GitProjects\hiddenKikai\projectsoldpc\himitsuSnake\himitsu\himitsu\obj\Debug\himitsu.pdb

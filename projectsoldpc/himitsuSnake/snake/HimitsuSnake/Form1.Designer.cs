@@ -36,9 +36,10 @@
             // 
             // btnTrains
             // 
-            this.btnTrains.Location = new System.Drawing.Point(179, 330);
+            this.btnTrains.Location = new System.Drawing.Point(239, 406);
+            this.btnTrains.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTrains.Name = "btnTrains";
-            this.btnTrains.Size = new System.Drawing.Size(75, 23);
+            this.btnTrains.Size = new System.Drawing.Size(100, 28);
             this.btnTrains.TabIndex = 0;
             this.btnTrains.Text = "Treina";
             this.btnTrains.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnSimula
             // 
-            this.btnSimula.Location = new System.Drawing.Point(470, 330);
+            this.btnSimula.Location = new System.Drawing.Point(627, 406);
+            this.btnSimula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSimula.Name = "btnSimula";
-            this.btnSimula.Size = new System.Drawing.Size(75, 23);
+            this.btnSimula.Size = new System.Drawing.Size(100, 28);
             this.btnSimula.TabIndex = 1;
             this.btnSimula.Text = "Simula";
             this.btnSimula.UseVisualStyleBackColor = true;
@@ -56,29 +58,32 @@
             // 
             // txtGeracao
             // 
-            this.txtGeracao.Location = new System.Drawing.Point(179, 274);
+            this.txtGeracao.Location = new System.Drawing.Point(239, 337);
+            this.txtGeracao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGeracao.Name = "txtGeracao";
-            this.txtGeracao.Size = new System.Drawing.Size(100, 20);
+            this.txtGeracao.Size = new System.Drawing.Size(132, 22);
             this.txtGeracao.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 277);
+            this.label1.Location = new System.Drawing.Point(129, 341);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(106, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Ultima Geracao";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtGeracao);
             this.Controls.Add(this.btnSimula);
             this.Controls.Add(this.btnTrains);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
