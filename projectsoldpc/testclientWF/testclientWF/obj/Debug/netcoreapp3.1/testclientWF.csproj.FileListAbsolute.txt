@@ -1,0 +1,14 @@
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\testclientWF.exe
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.csprojAssemblyReference.cache
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.Form1.resources
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.csproj.GenerateResource.cache
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.AssemblyInfoInputs.cache
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.AssemblyInfo.cs
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\hiddenman\source\repos\testclientWF\testclientWF\obj\Debug\netcoreapp3.1\testclientWF.csproj.CopyComplete

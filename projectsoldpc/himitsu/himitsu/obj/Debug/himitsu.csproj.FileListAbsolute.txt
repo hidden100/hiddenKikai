@@ -1,0 +1,9 @@
+C:\Users\hiddenman\source\repos\himitsu\himitsu\obj\Debug\himitsu.csprojAssemblyReference.cache
+C:\Users\hiddenman\source\repos\himitsu\himitsu\obj\Debug\himitsu.csproj.CoreCompileInputs.cache
+C:\Users\hiddenman\source\repos\himitsu\himitsu\bin\Debug\himitsu.dll
+C:\Users\hiddenman\source\repos\himitsu\himitsu\bin\Debug\himitsu.pdb
+C:\Users\hiddenman\source\repos\himitsu\himitsu\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hiddenman\source\repos\himitsu\himitsu\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hiddenman\source\repos\himitsu\himitsu\obj\Debug\himitsu.csproj.CopyComplete
+C:\Users\hiddenman\source\repos\himitsu\himitsu\obj\Debug\himitsu.dll
+C:\Users\hiddenman\source\repos\himitsu\himitsu\obj\Debug\himitsu.pdb
