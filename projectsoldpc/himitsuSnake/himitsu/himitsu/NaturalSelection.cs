@@ -99,14 +99,16 @@ namespace himitsu
             }
             for(int i = 0; i < geracaoAtual.Count; i++)
             {
-                double somaPontuacao = 0;
+            List<double> valores = new List<double>();
+                //double somaPontuacao = 0;
                 for (int j = 0; j < _numeroDeJogosPorSerVivo; j++)
                 {
-                    somaPontuacao = somaPontuacao + _simulador.Simula(geracaoAtual[i], true);
+                    valores.Add(_simulador.Simula(geracaoAtual[i], true));
+                    //somaPontuacao = somaPontuacao + _simulador.Simula(geracaoAtual[i], true);
                 }
                 //if (ser.Pontuacao == 0)
                 //{
-                geracaoAtual[i].Pontuacao = somaPontuacao / _numeroDeJogosPorSerVivo;
+                geracaoAtual[i].Pontuacao = MathHelper.GetMedia(valores);
                     //}
                 
             }

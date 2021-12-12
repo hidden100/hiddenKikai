@@ -671,15 +671,15 @@ namespace snake
         private double GetPotenciaPeloTamanho()
         {
             //return 0;
-            if (_snakeSize < 50)
+            if (_snakeSize < 100)
             {
                 return 0;
             }
-            //if (_snakeSize < 100)
-            //{
+            if (_snakeSize < 100)
+            {
                 return _snakeSize / 100;
-            //}
-            //return _snakeSize / 80;
+            }
+            return _snakeSize / 80;
 
 
         }

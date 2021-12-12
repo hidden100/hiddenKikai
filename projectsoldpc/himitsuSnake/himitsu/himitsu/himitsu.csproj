@@ -47,6 +47,7 @@
     <Compile Include="enums.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="Iterador.cs" />
+    <Compile Include="MathHelper.cs" />
     <Compile Include="NaturalSelection.cs" />
     <Compile Include="SerVivo.cs" />
     <Compile Include="SaidaDeIteracao.cs" />
