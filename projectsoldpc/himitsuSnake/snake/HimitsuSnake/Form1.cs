@@ -49,7 +49,13 @@ namespace HimitsuSnake
 
                         }
                     }
-                    HimitsuManager.Train(_standardPath, int.Parse(txtGeracao.Text), prexistente);
+                    double? pontuacaoAlvo = null;
+                    double temp = 0;
+                    if(double.TryParse(txtPontuacao.Text, out  temp))
+                    {
+                        pontuacaoAlvo = temp;
+                    }
+                    HimitsuManager.Train(_standardPath, int.Parse(txtGeracao.Text), prexistente, pontuacaoAlvo);
                     MessageBox.Show("Treinamento Finalizado - Melhor Geração: " + HimitsuManager.MelhorGeracao + "\nMelhor Pontuação: " + HimitsuManager.MelhorPontuacao);
                 }
             }

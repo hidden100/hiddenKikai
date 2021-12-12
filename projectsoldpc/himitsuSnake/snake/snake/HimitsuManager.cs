@@ -39,8 +39,8 @@ namespace snake
         private static double[] PegaFaixas()
         {
             List<double> f = new List<double>();
-            f.Add(17000);
-            f.Add(500000);
+            f.Add(500000000);
+            f.Add(10000000000);
             
             return f.OrderBy(x => x).ToArray();
         }
@@ -123,11 +123,11 @@ namespace snake
             return _form.GetCurrentInputs();          
         }
 
-        public static void Train(string filePath, int geracao, string prexistente)
+        public static void Train(string filePath, int geracao, string prexistente, double? pontuacaoAlvo)
         {
             _ns.FilePath = filePath;
             //_form = new Form1(false, true);
-            _ns.EvolveTillGeneration(geracao, prexistente);
+            _ns.EvolveTillGenerationOrPoint(geracao, prexistente, pontuacaoAlvo);
             MelhorGeracao = _ns.MelhorGeracao;
             MelhorPontuacao = _ns.MelhorPontuacao;
         }

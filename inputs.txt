@@ -6,3 +6,12 @@ fesquerda
 fdireita
 fbaixo
 fcima
+
+
+
++++++coisas duvidosas++++
+-- número de camadas e números de nerons por camada, como definir?
+-- fator de reprodução dos melhores de uma geração, ou talvez a forma toda de gerar variações
+-- numeros de melhores da geração
+-- numero de jogos por ser
+-- fator distancia percorrida relacionada ao tamanho do snake

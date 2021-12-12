@@ -48,7 +48,7 @@ namespace himitsu
         { get { return _filePath; } set{ _filePath = value; } }
 
         public NaturalSelection(double[] dadosIniciais, Func<string, double> metodoDeAvaliacao, Func<SaidaDeIteracao[], 
-            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas, int startPop = 1000, int numberOfLayers = 1, int numberOfNeuronsInLayer =10, int qttBestOfGeneration =10, int numberOfGamesPerIndividual = 10)
+            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas, int startPop = 1000, int numberOfLayers = 1, int numberOfNeuronsInLayer =5, int qttBestOfGeneration =10, int numberOfGamesPerIndividual = 10)
         {
             _dadosIniciais = dadosIniciais;
             _metodoDeAvaliacao = metodoDeAvaliacao;
@@ -63,7 +63,7 @@ namespace himitsu
             _simulador = new Simulador(_dadosIniciais, _metodoDeAvaliacao, _metodoReiterador, _possiveisSaidas, metodoIniciador);
             _numeroDeJogosPorSerVivo = numberOfGamesPerIndividual;
         }
-        public List<SerVivo> EvolveTillGeneration(int finalGeneration, string prexistente)
+        public List<SerVivo> EvolveTillGenerationOrPoint(int finalGeneration, string prexistente, double? finalpoints)
         {
             double pontuacao = 0;
             int geracaoAtual = 0;
@@ -83,9 +83,10 @@ namespace himitsu
             {
                 populacao = Evolve(null, ref pontuacao, ref geracaoAtual);
             }
-            while(geracaoAtual < finalGeneration)
+            while(( finalpoints == null && geracaoAtual < finalGeneration) || (finalpoints != null && ((melhor != null && finalpoints > melhor.Pontuacao) || melhor == null)))
             {
                 populacao = Evolve(populacao, ref pontuacao, ref geracaoAtual);
+                melhor = populacao.OrderByDescending(x => x.Pontuacao).FirstOrDefault();
             }
             return populacao;
         }

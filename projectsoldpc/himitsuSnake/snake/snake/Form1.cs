@@ -41,6 +41,8 @@ namespace snake
         private bool _firstTime = true;
         private string path = @"C:\Users\hidde\Desktop\bla\ble\";
         private string file;
+        private int _distanciapercorridaAtehPegarComida = 0;
+        private int _distanciaTotalPercorrida = 0;
 
         internal void SetSentido(Sentido sent)
         {
@@ -135,7 +137,7 @@ namespace snake
 
         private bool _show;
         private Thread _gameCycle;
-        private int _pontuacao;
+        private double _pontuacao;
         private double _distancia = 0;
         private bool _waitigAI = true;
         private bool _firstFood = true;
@@ -649,7 +651,7 @@ namespace snake
             {
                 _unidades[_Cabeca.X][_Cabeca.Y].IsFood = false;
                 _snakeSize++;
-                _pontuacao = _pontuacao + 500;
+                _pontuacao = _pontuacao + 500*(Math.Pow(_distanciapercorridaAtehPegarComida, GetPotenciaPeloTamanho()));
                 NewFood();
             }
             else
@@ -666,6 +668,22 @@ namespace snake
             }
         }
 
+        private double GetPotenciaPeloTamanho()
+        {
+            //return 0;
+            if (_snakeSize < 50)
+            {
+                return 0;
+            }
+            //if (_snakeSize < 100)
+            //{
+                return _snakeSize / 100;
+            //}
+            //return _snakeSize / 80;
+
+
+        }
+
         private void AjustaPontuacao()
         {
             if (AfastouDaComida())
@@ -678,7 +696,11 @@ namespace snake
             {
                 _pontuacao = _pontuacao + 1;
             }
+            _distanciapercorridaAtehPegarComida++;
+            _distanciaTotalPercorrida++;
         }
+
+   
 
         private bool AfastouDaComida()
         {
@@ -774,6 +796,7 @@ namespace snake
 
         private void NewFood()
         {
+            _distanciapercorridaAtehPegarComida = 0;
             Random gen = new Random();
 
             bool success = false;
@@ -880,7 +903,7 @@ namespace snake
                 }
                 else
                 {
-                    _delay = _delay / 4;
+                    _delay = _delay / 40;
                 }
                 _accelerating = !_accelerating;
             }
@@ -947,6 +970,9 @@ namespace snake
             //_gGame.FillRectangle(_solidBrushEmpty, pnGame.ClientRectangle);
             PrintNewState();
 
+            this.lblDistancia.Text = "Distância Percorrida: " + _distanciaTotalPercorrida;
+            this.lblPontuacao.Text = "Food Count: " + (_snakeSize - 3);
+            this.lblPontos.Text = "Pontuação: " + _pontuacao;
             _onPrint = false;
             
         }
