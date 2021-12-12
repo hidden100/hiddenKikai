@@ -78,7 +78,7 @@ namespace snake
                 {
                     _form.SetSentido(Sentido.Esquerda);
                 }
-                return _form.GetCurrentInputs();
+                return _form.GameCycleSincrono();
             });
         }
 

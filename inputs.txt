@@ -1,0 +1,8 @@
+xdireita
+xesquerda
+xcima
+
+fesquerda
+fdireita
+fbaixo
+fcima

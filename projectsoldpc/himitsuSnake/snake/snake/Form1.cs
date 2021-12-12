@@ -51,8 +51,8 @@ namespace snake
             //}
             lock (_lockSetSentido)
             {
-                if (!_mudou)
-                {
+                //if (!_mudou)
+                //{
                     if (sent == Sentido.Cima)
                     {
                         //segue reto
@@ -128,7 +128,7 @@ namespace snake
 
                     //    }
                     //}
-                }
+                //}
                 _waitigAI = false;
             }
         }
@@ -140,7 +140,7 @@ namespace snake
         private bool _waitigAI = true;
         private bool _firstFood = true;
 
-        public Form1(bool show, bool startCycle)
+        public Form1(bool show, bool startCycle, bool robot = true)
         {
             _show = show;
             InitializeComponent();
@@ -156,7 +156,14 @@ namespace snake
             DateTime agora = DateTime.Now;
 
             file = agora.ToString("yyyyMMddHHmmssfff") + ".txt";
-            Start(startCycle);
+            if (!robot)
+            {
+                Start(startCycle);
+            }
+            else
+            {
+                Start4Train();
+            }
         }
         public void Start(bool startCycle)
         {
@@ -173,6 +180,16 @@ namespace snake
             {
                 StartGameCycleAsync();
             }
+        }
+
+        public void Start4Train()
+        {
+            _sentidoAtual = Sentido.Direita;
+            PreencheUnidades();
+            PrintAllBlank();
+            IniciaSnake();
+            NewFood();
+            AfastouDaComida();
         }
         private void StartForHimitsu(bool show)
         {
@@ -200,10 +217,10 @@ namespace snake
         }
         internal double[] GetCurrentInputs()
         {
-            while(_mudou && !_finished)
-            {
-                Thread.Sleep(10);
-            }
+            //while(_mudou && !_finished)
+            //{
+            //    Thread.Sleep(10);
+            //}
             if(_finished)
             {
                 return null;
@@ -357,6 +374,10 @@ namespace snake
 
         private double[] VerificaSeEnvoltaEhProibido()
         {
+            if(_Cabeca.Y == 30 || _Cabeca.Y == 29)
+            {
+
+            }
             List<double> envolto = new List<double>();
             double direita = 0;
             double esquerda = 0;
@@ -405,7 +426,7 @@ namespace snake
                     }
                 }
                 //baixo
-                if (_Cabeca.Y + 1 > _height || _unidades[_Cabeca.X][_Cabeca.Y + 1].IsBody)
+                if (_Cabeca.Y + 1 >= _height || _unidades[_Cabeca.X][_Cabeca.Y + 1].IsBody)
                 {
                     if (_sentidoAtual == Sentido.Cima)
                     {
@@ -552,6 +573,43 @@ namespace snake
             }
         }
 
+
+        public double[] GameCycleSincrono()
+        {
+            if (_sentidoAtual == Sentido.Baixo)
+            {
+                _Cabeca = new Point(_Cabeca.X, _Cabeca.Y + 1);
+            }
+            else if (_sentidoAtual == Sentido.Cima)
+            {
+                _Cabeca = new Point(_Cabeca.X, _Cabeca.Y - 1);
+            }
+            else if (_sentidoAtual == Sentido.Direita)
+            {
+                _Cabeca = new Point(_Cabeca.X + 1, _Cabeca.Y);
+            }
+            else if (_sentidoAtual == Sentido.Esquerda)
+            {
+                _Cabeca = new Point(_Cabeca.X - 1, _Cabeca.Y);
+            }
+
+            AnalisaColisao();
+            if (_show)
+            {
+                this.pnGame.Invalidate(false);
+                while (_onPrint)
+                {
+                    Thread.Sleep(10);
+                }
+            }
+            _mudou = false;
+            if (_show)
+                Thread.Sleep(_delay);
+
+            return GetCurrentInputs();
+
+        }
+
         private void WaitAIAction()
         {
             while(_waitigAI)
@@ -613,7 +671,7 @@ namespace snake
             if (AfastouDaComida())
             {
                 _pontuacao = _pontuacao - 10;
-                if (Pontuacao < -40)
+                if (Pontuacao < -100)
                 { FinishAll(); }
             }
             else

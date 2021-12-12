@@ -13,6 +13,8 @@ namespace himitsu
         int _startPoupulation;
         int _numeroCamadasDeNeuronios;
         int _numeroNeuroniosNaCamada;
+        int _numeroDeMelhoresDaGeracao;
+        int _numeroDeJogosPorSerVivo;
         double[] _dadosIniciais;
         Func<string, double> _metodoDeAvaliacao;
         Func<SaidaDeIteracao[], double[]> _metodoReiterador;
@@ -46,7 +48,7 @@ namespace himitsu
         { get { return _filePath; } set{ _filePath = value; } }
 
         public NaturalSelection(double[] dadosIniciais, Func<string, double> metodoDeAvaliacao, Func<SaidaDeIteracao[], 
-            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas, int startPop = 100, int numberOfLayers = 1, int numberOfNeuronsInLayer =10)
+            double[]> metodoReiterador, SaidaDeIteracao[] possiveisSaidas, Action metodoIniciador, string filePath, double[] faixas, int startPop = 1000, int numberOfLayers = 1, int numberOfNeuronsInLayer =10, int qttBestOfGeneration =10, int numberOfGamesPerIndividual = 10)
         {
             _dadosIniciais = dadosIniciais;
             _metodoDeAvaliacao = metodoDeAvaliacao;
@@ -57,7 +59,9 @@ namespace himitsu
             _startPoupulation = startPop;
             _numeroCamadasDeNeuronios = numberOfLayers;
             _numeroNeuroniosNaCamada = numberOfNeuronsInLayer;
+            _numeroDeMelhoresDaGeracao = qttBestOfGeneration;
             _simulador = new Simulador(_dadosIniciais, _metodoDeAvaliacao, _metodoReiterador, _possiveisSaidas, metodoIniciador);
+            _numeroDeJogosPorSerVivo = numberOfGamesPerIndividual;
         }
         public List<SerVivo> EvolveTillGeneration(int finalGeneration, string prexistente)
         {
@@ -94,10 +98,16 @@ namespace himitsu
             }
             for(int i = 0; i < geracaoAtual.Count; i++)
             {
+                double somaPontuacao = 0;
+                for (int j = 0; j < _numeroDeJogosPorSerVivo; j++)
+                {
+                    somaPontuacao = somaPontuacao + _simulador.Simula(geracaoAtual[i], true);
+                }
                 //if (ser.Pontuacao == 0)
                 //{
-                    geracaoAtual[i].Pontuacao = _simulador.Simula(geracaoAtual[i], true);
-                //}
+                geracaoAtual[i].Pontuacao = somaPontuacao / _numeroDeJogosPorSerVivo;
+                    //}
+                
             }
 
             List<SerVivo> melhores = Darwin(geracaoAtual);
@@ -223,7 +233,7 @@ namespace himitsu
         {
             var result = geracaoAtual.OrderByDescending(x => x.Pontuacao);
 
-            return result.Take(1).ToList();
+            return result.Take(_numeroDeMelhoresDaGeracao).ToList();
         }
 
         private List<SerVivo> CriaGeracaoInicial(int numeroGeracaoAtual)

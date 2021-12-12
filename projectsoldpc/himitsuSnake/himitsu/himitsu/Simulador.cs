@@ -55,7 +55,7 @@ namespace himitsu
                 }
                 else
                 {
-                    Thread.Sleep(50);
+                    //Thread.Sleep(50);
                 }
                     newInput = _metodoReiterador(saidasDaIteracao);
             }
